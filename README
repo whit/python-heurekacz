@@ -1,0 +1,12 @@
+Python library to communicate with Heureka.cz
+=============================================
+
+Usage::
+
+    ov = Overeno('xbG32nDsa...')
+    ov.set_email('customer@example.com')
+    ov.add_product('Some product')
+    ...
+    ov.add_product('Another product')
+    ov.send(timeout=2)
+
