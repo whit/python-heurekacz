@@ -56,7 +56,11 @@ class Overeno(object):
         url += "&".join(self.products)
 
         try:
-            resp = urllib2.urlopen(url, timeout=timeout)
+            try:
+                resp = urllib2.urlopen(url, timeout=timeout)
+            except TypeError, e:
+                log.warning('Cannot set timeout in urlopen: %s' % e)
+                resp = urllib2.urlopen(url)
             cnt = resp.read()
             if cnt == self.RESPONSE_OK:
                 return True
